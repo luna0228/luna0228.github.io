@@ -143,6 +143,11 @@ button:focus {
   margin-bottom: 30px;
 }
 
+.mb-80 {
+  margin-bottom: 80px;
+}
+
+
 .ml-05 {
   margin-left: 5px;
 }
@@ -263,15 +268,20 @@ header .goback .icon img {
   letter-spacing: 2px;
   border-radius: 20px;
   border: none;
+  position: relative;
 }
 
 .btn.btn-basic-line span {
-  height: calc(100% + 8px);
+
   background: #fff;
   color: #777;
-  display: block;
   border-radius: 20px;
-  margin: -4px -10px;
+  position: absolute;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  margin: 0;
+  top: 2px;
+  left: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -855,6 +865,8 @@ select.form-control {
   border-radius: 20px;
   position: relative;
 }
+
+
 
 .Ccard-item .card-info {
   padding: 25px 20px;
