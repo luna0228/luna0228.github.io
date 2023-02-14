@@ -557,7 +557,7 @@ button.like {
 .form-control:focus {
   border-color: #ddd;
   color: #061A20;
-  background: none;
+  background-color: transparent;
 }
 
 select.form-control {
