@@ -321,7 +321,7 @@ body.detail .main {
 }
 
 .glass-bg {
-  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, .85);
   backdrop-filter: blur(5px);
 }
 
@@ -558,6 +558,15 @@ button.like {
   border-color: #ddd;
   color: #061A20;
   background: none;
+}
+
+select.form-control {
+  background: url(../img/icon/arrow-d.svg)no-repeat;
+  background-position: right 10px center;
+  /*移除箭頭樣式*/
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 
@@ -844,6 +853,7 @@ button.like {
 
 .Ccard-item {
   border-radius: 20px;
+  position: relative;
 }
 
 .Ccard-item .card-info {
@@ -1173,6 +1183,7 @@ footer {
 
 footer .bottom-nav {
   height: 80px;
+  background: #fff !important;
 }
 
 footer .nav-list {
