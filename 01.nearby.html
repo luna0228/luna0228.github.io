@@ -11,13 +11,24 @@
 
   <!-- Plugins CSS -->
   <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-4.2.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
   <link rel="stylesheet" type="text/css" href="assets/css/plugins.css">
   <!-- KYART CSS-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
+<style>
+  #map {
+    height: calc(100vh - 140px);
+    margin: 0 -15px;
+  }
 
+  .leaflet-control-attribution {
+    opacity: 0;
+  }
+</style>
 
-<body>
+<body class="map">
   <div class="wrapper">
     <header>
       <div class="nav glass-shadow glass-bg">
@@ -26,7 +37,7 @@
             <img src="assets/img/icon/arrow-l.svg">
           </div>
         </a>
-        <h3 class="title-style">通知設定</h3>
+        <h3 class="title-style">附近優惠</h3>
         <a data-toggle="modal" data-target="#search-modal" class="sreach-box">
           <div class="icon">
             <img src="assets/img/icon/search.svg">
@@ -37,88 +48,44 @@
 
     <div class="main">
       <div class="container">
-        <div class="panel form-panel setting-panel glass-shadow glass-bg mt-20 mb-20">
-          <div class="input-row">
-            <div class="input-item">
-              <h5>優惠到期通知</h5>
-              <div class="form-check">
-                <label class="form-check-label" for="radio01">
-                  <input class="form-check-input" type="radio" name="radio-group01" id="radio01" checked="">
-                  <span class="text">啟用</span>
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label" for="radio02">
-                  <input class="form-check-input" type="radio" name="radio-group01" id="radio02">
-                  <span class="text">關閉</span>
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="input-row">
-            <div class="input-item">
-              <h5>最近優惠通知</h5>
-              <div class="form-check">
-                <label class="form-check-label" for="radio03">
-                  <input class="form-check-input" type="radio" name="radio-group02" id="radio03">
-                  <span class="text">啟用</span>
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label" for="radio04">
-                  <input class="form-check-input" type="radio" name="radio-group02" id="radio04" checked="">
-                  <span class="text">關閉</span>
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="input-row">
-            <div class="input-item">
-              <h5>繳費通知
-                <span class="txt-gray">3天前提醒</span>
-              </h5>
-              <div class="form-check">
-                <label class="form-check-label" for="radio05">
-                  <input class="form-check-input" type="radio" name="radio-group03" id="radio05" checked="">
-                  <span class="text">啟用</span>
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label" for="radio06">
-                  <input class="form-check-input" type="radio" name="radio-group03" id="radio06">
-                  <span class="text">關閉</span>
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <hr>
-          <h5 class="font-bold mb-10">繳費到期日設定</h5>
-          <div class="input-row">
-            <div class="input-item">
-              <h5>台新gogo卡</h5>
-              <input type="text" class="form-control ">
-              <span>日</span>
-            </div>
-          </div>
-          <div class="input-row">
-            <div class="input-item">
-              <h5>中國信託銀行卡</h5>
-              <input type="text" class="form-control ">
-              <span>日</span>
-            </div>
-          </div>
-
-
-          <div class="btn-bar mt-20 ">
-            <a href="00.index.htm" class="btn btn-basic">
-              <span>確認</span>
+        <div id="map"></div>
+        <div class="panel search-panel fixed-panel store-panel glass-shadow glass-bg mt-20 mb-20">
+          <div class="card-item card-store">
+            <a class="img-box glass-shadow glass-bg">
+              <img src="assets/img/03.jpg">
             </a>
+            <div class="store-info">
+              <div class="store-name">
+                <h4>涓豆腐-台北敦南店</h4>
+              </div>
+              <span class="distance txt-gray">15m</span>
+              <hr>
+              <ul class="discount-list">
+                <li>
+                  <div class="tags">
+                    <span class="bank">中信</span>
+                    <span class="kind">贈品</span>
+                  </div>
+                  <a href="detail.html">
+                    <h5>刷中信卡贈【黃金酥炸嫩豆腐】乙份</h5>
+                  </a>
+                  <p class="date txt-gray">2023-01-01~2023-12-31</p>
+                </li>
+                <li class="store-list">
+                  <div class="tags">
+                    <span class="bank">台新</span>
+                    <span class="kind">贈品</span>
+                  </div>
+                  <a href="detail.html">
+                    <h5>涓豆腐消費贈「黃金酥炸嫩豆腐」乙份</h5>
+                  </a>
+                  <p class="date txt-gray">2022-12-02~2023-12-31
+                  </p>
+                </li>
+              </ul>
+
+            </div>
+
           </div>
         </div>
 
@@ -129,25 +96,25 @@
       <div class="bottom-nav glass-shadow glass-bg">
         <ul class="nav-list">
           <li>
-            <a href="01.liked.htm">
+            <a href="01.liked.html">
               <img src="assets/img/icon/heart.png">
               <p>我的最愛</p>
             </a>
           </li>
           <li>
-            <a href="01.nearby.htm">
+            <a href="01.nearby.html">
               <img src="assets/img/icon/location.png">
               <p>附近優惠</p>
             </a>
           </li>
           <li>
-            <a href="01.account.htm">
+            <a href="01.account.html">
               <img src="assets/img/icon/info.png">
               <p>個人資料</p>
             </a>
           </li>
           <li>
-            <a href="01.setting.htm">
+            <a href="01.setting.html">
               <img src="assets/img/icon/setting.png">
               <p>通知設定</p>
             </a>
@@ -156,7 +123,7 @@
       </div>
     </footer>
     <div class="fixed-btn ">
-      <a href="01.cards.htm" class="small-shadow">
+      <a href="01.cards.html" class="small-shadow">
         <img src="assets/img/icon/card.png">
       </a>
     </div>
@@ -183,7 +150,7 @@
             </div>
           </div>
           <div class="btn-bar mt-30 mb-30">
-            <a href="search_result.htm" class="btn btn-basic">
+            <a href="search_result.html" class="btn btn-basic">
               <span>搜尋</span>
             </a>
           </div>
@@ -221,16 +188,22 @@
   <script src="assets/js/jquery-3.3.1.min.js"></script>
   <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
   <script src="assets/plugins/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
   <script src="assets/js/plugins.js"></script>
   <script src="assets/js/ui_setting.js"></script>
   <!-- END JS -->
   <script>
 
+    // 25.040786, 121.5509915
+    const map = L.map('map').setView([25.040, 121.550], 16);//初始地圖位置
 
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);//套用地圖OpenStreetMap
 
-
-
-
+    var marker = L.marker([25.0407977, 121.5475344]).addTo(map);//設標記
 
   </script>
 </body>
